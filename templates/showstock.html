@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Showing stock value
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('login') }}" method="post">
+        <fieldset>
+            {{name}} which is  {{actual_name}} at {{price}} each!
+        </fieldset>
+    </form>
+{% endblock %}

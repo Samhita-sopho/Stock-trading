@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbols</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Transacted</th>
+            </tr>
+        </thead>
+        
+    <tbody>
+        {% if boughtstocks %}
+            {% for stock in boughtstocks %}    
+                    <tr>
+                        <td>{{stock.stocksym}}</td>
+                        <td>{{stock.shares}}</td>
+                        <td>{{stock.price}}</td>
+                        <td>{{stock.transacted}}</td>
+                    </tr>
+            {% endfor %}
+        {% else %}
+             <tr>
+                        <td>boo;</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                </tr>
+        {% endif %}
+        
+
+{% endblock %}
+    

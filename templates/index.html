@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    {% block header%}{% endblock %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>{{total}}</td>
+            </tr>
+        </tfoot>
+    <tbody>
+        {% if boughtstocks %}
+            {% for stock in boughtstocks %}    
+                    <tr>
+                        <td>{{stock.stocksym}}</td>
+                        <td>{{stock.stockname}}</td>
+                        <td>{{stock.shares}}</td>
+                        <td>${{stock.value}}</td>
+                        <td>${{stock.value*stock.shares}}</td>
+                    </tr>
+            {% endfor %}
+        
+        {% endif %}
+        {% if flag==1 %}
+        <tr>
+                <td colspan="4">CASH</td>
+                <td>${{cash}}</td>
+            </tr>
+        {% endif %}
+
+
+{% endblock %}
+    
